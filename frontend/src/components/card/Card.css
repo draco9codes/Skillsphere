@@ -1,7 +1,8 @@
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 300px;
+  max-width: 100vh;
+  max-height: 25vh;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease;
