@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 function Home() {
   const [displayMessage, setDisplayMessage] = useState("");
 
-  useEffect(() => {
+
+   useEffect(() => {
     async function getDisplayMessage() {
       try {
         const response = await axios.get("http://localhost:8083/home/welcome", {
@@ -25,7 +26,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="cardParent">
+    <div className="bg-rose-100 min-h-screen flex items-center justify-center">
       <Card
         title="Display Card"
         image="frontend\src\assets\react.svg"
