@@ -1,6 +1,7 @@
 import Toggle from "@/components/ui/toggle";
+import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
 import { MdTerminal } from "react-icons/md";
-import { SearchIcon, MoonIcon, BellIcon, UserCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -12,15 +13,17 @@ function NavBar() {
             size={40}
           />
           <div className="font-bold text-[#5b8db0] font-space-grotesk text-xl">
-            Skillsphere
+            <Link to="/">Skillsphere</Link>
           </div>
         </div>
 
         <div className="flex flex-row gap-5 text-black dark:text-white">
-          <div>Discover</div>
-          <div>My Journey</div>
-          <div>Study Rooms</div>
-          <div>Projects</div>
+          <div className="flex flex-row gap-5 text-black dark:text-white">
+            <Link to="/discover">Discover</Link>
+            <Link to="/journey">My Journey</Link>
+            <Link to="/rooms">Study Rooms</Link>
+            <Link to="/projects">Projects</Link>
+          </div>
         </div>
 
         <div className="font-medium text-[#5b8db0] font-space-grotesk text-l">
