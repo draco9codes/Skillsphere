@@ -1,4 +1,13 @@
-import { ArrowRight, GitBranch, Sparkles, TrendingUp, Users, Zap, Flame, Clock } from "lucide-react";
+import {
+  ArrowRight,
+  GitBranch,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Zap,
+  Flame,
+  Clock,
+} from "lucide-react";
 
 function LandingPage() {
   return (
@@ -6,7 +15,7 @@ function LandingPage() {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-t from-[#000C40] to-[#F0F2F0]">
         <section>
           <div className="text-center px-4">
-            <div className="inline-flex items-center gap-2 bg-[#000C40]/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
+            <div className="mt-5 inline-flex items-center gap-2 bg-[#000C40]/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
               <Sparkles className="text-yellow-300" size={20} />
               <span className="text-sm text-white">
                 Level Up Your Skills with RPG-Style Learning
@@ -54,7 +63,7 @@ function LandingPage() {
             </div>
           </div>
         </section>
-        <br/>
+        <br />
         <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
@@ -125,8 +134,7 @@ function LandingPage() {
                     </span>
                   </div>
                   <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Join{" "}
-                    <ArrowRight size={12} />
+                    Join <ArrowRight size={12} />
                   </button>
                 </div>
               </div>
@@ -259,11 +267,20 @@ function LandingPage() {
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <TrendingUp className="text-[#FF7E5F] dark:text-[#FF7E5F]" size={20} />
-                  <span className="text-sm text-[#FF7E5F] dark:text-[#FF7E5F]">Most Popular</span>
+                  <TrendingUp
+                    className="text-[#FF7E5F] dark:text-[#FF7E5F]"
+                    size={20}
+                  />
+                  <span className="text-sm text-[#FF7E5F] dark:text-[#FF7E5F]">
+                    Most Popular
+                  </span>
                 </div>
-                <h2 className="text-3xl md:text-4xl text-gray-900 dark:text-white">Trending Skill Trees</h2>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">Career paths with proven outcomes</p>
+                <h2 className="text-3xl md:text-4xl text-gray-900 dark:text-white">
+                  Trending Skill Trees
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">
+                  Career paths with proven outcomes
+                </p>
               </div>
             </div>
 
@@ -271,26 +288,48 @@ function LandingPage() {
               {/* Full-Stack Developer */}
               <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1565229284535-2cbbe3049123?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBwcm9ncmFtbWluZ3xlbnwxfHx8fDE3NjgyODM4NTZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Full-Stack Developer" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src="https://images.unsplash.com/photo-1565229284535-2cbbe3049123?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBwcm9ncmFtbWluZ3xlbnwxfHx8fDE3NjgyODM4NTZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                    alt="Full-Stack Developer"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3"><div className="text-xs text-white/90 mb-1">Development</div></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="text-xs text-white/90 mb-1">
+                      Development
+                    </div>
+                  </div>
                   <div className="absolute top-3 right-3 bg-[#FF7E5F] text-white px-3 py-1 rounded-full text-xs flex items-center gap-1">
                     <Flame className="lucide lucide-flame size-3" />
                     In Progress
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">Full-Stack Developer</h3>
+                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">
+                    Full-Stack Developer
+                  </h3>
                   <div className="mb-3">
-                    <div className="flex items-center justify-between text-sm mb-2"><span className="text-gray-600 dark:text-gray-400">Your Progress</span><span className="text-gray-900 dark:text-white">8/24</span></div>
-                    <div className="bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden"><div className="bg-gradient-to-r from-[#FF7E5F] to-[#F0F2F0] h-full transition-all" /></div>
+                    <div className="flex items-center justify-between text-sm mb-2">
+                      <span className="text-gray-600 dark:text-gray-400">
+                        Your Progress
+                      </span>
+                      <span className="text-gray-900 dark:text-white">
+                        8/24
+                      </span>
+                    </div>
+                    <div className="bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                      <div className="bg-gradient-to-r from-[#FF7E5F] to-[#F0F2F0] h-full transition-all" />
+                    </div>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
                     <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
                       <Users className="lucide lucide-users size-4" />
                       <span>12.8K learners</span>
                     </div>
-                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Continue<ArrowRight size={24} /></button>
+                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Continue
+                      <ArrowRight size={24} />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -298,19 +337,41 @@ function LandingPage() {
               {/* AI Engineer */}
               <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwbmV0d29ya3xlbnwxfHx8fDE3NjgzNDA3Njd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="AI Engineer" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNobm9sb2d5JTIwbmV0d29ya3xlbnwxfHx8fDE3NjgzNDA3Njd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                    alt="AI Engineer"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3"><div className="text-xs text-white/90 mb-1">Machine Learning</div></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="text-xs text-white/90 mb-1">
+                      Machine Learning
+                    </div>
+                  </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">AI Engineer</h3>
+                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">
+                    AI Engineer
+                  </h3>
                   <div className="space-y-2 mb-3">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><GitBranch className="lucide lucide-git-branch size-4" /><span>18 skill nodes</span></div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><Clock className="lucide lucide-clock size-4" /><span>~95 hours</span></div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <GitBranch className="lucide lucide-git-branch size-4" />
+                      <span>18 skill nodes</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <Clock className="lucide lucide-clock size-4" />
+                      <span>~95 hours</span>
+                    </div>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400"><Users className="lucide lucide-users size-4" /><span>8.5K learners</span></div>
-                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Start<ArrowRight className="lucide lucide-arrow-right size-3" /></button>
+                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                      <Users className="lucide lucide-users size-4" />
+                      <span>8.5K learners</span>
+                    </div>
+                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Start
+                      <ArrowRight className="lucide lucide-arrow-right size-3" />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -318,38 +379,80 @@ function LandingPage() {
               {/* Product Designer */}
               <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1557243962-0a093922933f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBjcmVhdGl2ZXxlbnwxfHx8fDE3NjgzNTYyMjJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Product Designer" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src="https://images.unsplash.com/photo-1557243962-0a093922933f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ24lMjBjcmVhdGl2ZXxlbnwxfHx8fDE3NjgzNTYyMjJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                    alt="Product Designer"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3"><div className="text-xs text-white/90 mb-1">Design</div></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="text-xs text-white/90 mb-1">Design</div>
+                  </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">Product Designer</h3>
+                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">
+                    Product Designer
+                  </h3>
                   <div className="space-y-2 mb-3">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><GitBranch className="lucide lucide-git-branch size-4" /><span>21 skill nodes</span></div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><Clock className="lucide lucide-clock size-4" /><span>~85 hours</span></div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <GitBranch className="lucide lucide-git-branch size-4" />
+                      <span>21 skill nodes</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <Clock className="lucide lucide-clock size-4" />
+                      <span>~85 hours</span>
+                    </div>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400"><Users className="lucide lucide-users size-4" /><span>6.7K learners</span></div>
-                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Start<ArrowRight className="lucide lucide-arrow-right size-3" /></button>
+                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                      <Users className="lucide lucide-users size-4" />
+                      <span>6.7K learners</span>
+                    </div>
+                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Start
+                      <ArrowRight className="lucide lucide-arrow-right size-3" />
+                    </button>
                   </div>
                 </div>
               </div>
 
               <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1707528041466-83a325f01a3c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzY4Mjg0MjM3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="DevOps Specialist" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img
+                    src="https://images.unsplash.com/photo-1707528041466-83a325f01a3c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXZlbG9wZXIlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzY4Mjg0MjM3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+                    alt="DevOps Specialist"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3"><div className="text-xs text-white/90 mb-1">Cloud &amp; Infrastructure</div></div>
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <div className="text-xs text-white/90 mb-1">
+                      Cloud &amp; Infrastructure
+                    </div>
+                  </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">DevOps Specialist</h3>
+                  <h3 className="text-lg mb-3 text-gray-900 dark:text-white group-hover:text-[#FF7E5F] dark:group-hover:text-[#FF7E5F] transition-colors">
+                    DevOps Specialist
+                  </h3>
                   <div className="space-y-2 mb-3">
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><GitBranch className="lucide lucide-git-branch size-4" /><span>16 skill nodes</span></div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400"><Clock className="lucide lucide-clock size-4" /><span>~75 hours</span></div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <GitBranch className="lucide lucide-git-branch size-4" />
+                      <span>16 skill nodes</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                      <Clock className="lucide lucide-clock size-4" />
+                      <span>~75 hours</span>
+                    </div>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400"><Users className="lucide lucide-users size-4" /><span>5.4K learners</span></div>
-                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Start<ArrowRight size={24} /></button>
+                    <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+                      <Users className="lucide lucide-users size-4" />
+                      <span>5.4K learners</span>
+                    </div>
+                    <button className="text-[#FF7E5F] dark:text-[#FF7E5F] hover:underline text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Start
+                      <ArrowRight size={24} />
+                    </button>
                   </div>
                 </div>
               </div>
