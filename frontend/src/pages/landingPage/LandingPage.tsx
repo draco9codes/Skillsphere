@@ -7,13 +7,14 @@ import {
   Zap,
   Flame,
   Clock,
+  Play,
 } from "lucide-react";
 
 function LandingPage() {
   return (
     <>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-t from-[#000C40] to-[#F0F2F0]">
-        <section>
+        <section className="mb-13 mt-10">
           <div className="text-center px-4">
             <div className="mt-5 inline-flex items-center gap-2 bg-[#000C40]/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
               <Sparkles className="text-yellow-300" size={20} />
@@ -64,7 +65,7 @@ function LandingPage() {
           </div>
         </section>
         <br />
-        <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+        <section className="w-full py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <div>
@@ -262,7 +263,8 @@ function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="py-16 bg-white dark:bg-gray-900">
+        <br />
+        <section className="w-full py-16 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between mb-8">
               <div>
@@ -457,6 +459,29 @@ function LandingPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <br />
+        <section className="flex flex-col items-center mb-10 mt-12 px-4 text-center gap-2">
+          <div className="mt-5 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
+            <Play className="text-white" size={20} />
+            <span className="text-sm text-white">
+              Level Up Your Skills with RPG-Style Learning
+            </span>
+          </div>
+          <h5 className="text-3xl md:text-4xl mb-4 text-white text-center">
+            Ready to embark on your learning adventure?
+          </h5>
+          <div className="text-lg text-white max-w-2xl text-center mb-6">
+            Pick a skill tree, unlock nodes by building projects, and watch your
+            career transform.
+          </div>
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <button className="bg-white text-[#FF7E5F] px-8 py-4 rounded-xl flex items-center gap-2 hover:bg-purple-50 transition-all hover:scale-105 shadow-lg">
+              <GitBranch size={24} />
+              Chose Your First Tree
+              <ArrowRight size={24} />
+            </button>
           </div>
         </section>
       </div>

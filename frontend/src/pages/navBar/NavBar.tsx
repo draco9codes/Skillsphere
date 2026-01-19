@@ -2,43 +2,137 @@ import Toggle from "@/components/ui/toggle";
 import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
 import { MdTerminal } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Login from "@/components/login/Login";
+import { useAuth } from "@/components/AuthContext";
+import { useState, type FC } from "react";
+import { type MouseEvent } from "react";
 
-function NavBar() {
+const NavBar: FC = () => {
+  const { user } = useAuth();
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+
+  const handleJourneyClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (!user) {
+      e.preventDefault();
+      setLoginOpen(true);
+    }
+  };
   return (
-    <div className="sticky top-0 z-50 w-full h-16 bg-[#edefee] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-[1400px] mx-auto px-5 flex items-center justify-between h-full">
-        <div className="flex items-center gap-2">
-          <MdTerminal
-            className="animate-pulse [animation-duration:2s] text-[#5b8db0]"
-            size={40}
-          />
-          <div className="font-bold text-[#5b8db0] font-space-grotesk text-xl">
-            <Link to="/">Skillsphere</Link>
+    <>
+      <div className="sticky top-0 z-50 w-full h-16 bg-[#edefee] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <div className="relative max-w-[1400px] mx-auto px-5 flex items-center h-full">
+          {/* LEFT */}
+          <div className="flex items-center gap-2">
+            <MdTerminal
+              className="animate-pulse [animation-duration:2s] text-[#5b8db0]"
+              size={40}
+            />
+            <div className="font-bold text-[#5b8db0] font-space-grotesk text-xl">
+              <Link to="/">Skillsphere</Link>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-row gap-5 text-black dark:text-white">
-          <div className="flex flex-row gap-5 text-black dark:text-white">
-            <Link to="/discover">Discover</Link>
-            <Link to="/journey">My Journey</Link>
-            <Link to="/rooms">Study Rooms</Link>
-            <Link to="/projects">Projects</Link>
+          {/* CENTER (dead center) */}
+          <div className="absolute left-1/2 -translate-x-1/2 flex gap-6 text-black dark:text-white">
+            <Link
+              to="/discover"
+              className="
+              relative inline-block px-2
+              transform-gpu
+              transition-all duration-300 ease-out
+              hover:scale-125
+              hover:text-[#5b8db0]
+              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
+              after:absolute after:left-1/2 after:-bottom-2
+              after:h-[3px] after:w-0 after:bg-[#5b8db0]
+              after:transition-all after:duration-300
+              hover:after:left-0 hover:after:w-full
+              font-['Space_Grotesk']"
+            >
+              Discover
+            </Link>
+
+            <Link
+              onClick={handleJourneyClick}
+              to="/journey"
+              className="
+              relative inline-block px-2
+              transform-gpu
+              transition-all duration-300 ease-out
+              hover:scale-125
+              hover:text-[#5b8db0]
+              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
+              after:absolute after:left-1/2 after:-bottom-2
+              after:h-[3px] after:w-0 after:bg-[#5b8db0]
+              after:transition-all after:duration-300
+              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+            >
+              My Journey
+            </Link>
+
+            <Link
+              to="/rooms"
+              className="
+              relative inline-block px-2
+              transform-gpu
+              transition-all duration-300 ease-out
+              hover:scale-125
+              hover:text-[#5b8db0]
+              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
+              after:absolute after:left-1/2 after:-bottom-2
+              after:h-[3px] after:w-0 after:bg-[#5b8db0]
+              after:transition-all after:duration-300
+              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+            >
+              Study Rooms
+            </Link>
+
+            <Link
+              to="/projects"
+              className="
+              relative inline-block px-2
+              transform-gpu
+              transition-all duration-300 ease-out
+              hover:scale-125
+              hover:text-[#5b8db0]
+              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
+              after:absolute after:left-1/2 after:-bottom-2
+              after:h-[3px] after:w-0 after:bg-[#5b8db0]
+              after:transition-all after:duration-300
+              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+            >
+              Projects
+            </Link>
           </div>
-        </div>
 
-        <div className="font-medium text-[#5b8db0] font-space-grotesk text-l">
-          <Toggle
-            options={["Student", "Mentor"]}
-            onChange={(val) => console.log(val)}
-          />
-          <SearchIcon className="ml-4 inline-block" size={22} />
-          <MoonIcon className="ml-4 inline-block" size={22} />
-          <BellIcon className="ml-4 inline-block" size={22} />
-          <UserCircle className="ml-4 inline-block" size={22} />
+          {/* RIGHT */}
+          <div className="ml-auto font-medium text-[#5b8db0] font-space-grotesk text-l flex items-center">
+            <Toggle
+              options={["Student", "Mentor"]}
+              onChange={(val) => console.log(val)}
+            />
+            <SearchIcon className="ml-4" size={22} />
+            <MoonIcon className="ml-4" size={22} />
+            <BellIcon className="ml-4" size={22} />
+            <UserCircle className="ml-4" size={22} />
+          </div>
         </div>
       </div>
-    </div>
+      {loginOpen && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="relative w-full max-w-md">
+            <button
+              className="absolute top-2 right-2 text-white text-xl"
+              onClick={() => setLoginOpen(false)}
+            >
+              ×
+            </button>
+            <Login onSubmit={() => setLoginOpen(false)} />
+          </div>
+        </div>
+      )}
+    </>
   );
-}
+};
 
 export default NavBar;
