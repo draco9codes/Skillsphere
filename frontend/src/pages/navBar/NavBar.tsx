@@ -1,12 +1,10 @@
-import Toggle from "@/components/ui/toggle";
-import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
-import { MdTerminal } from "react-icons/md";
-import { Link } from "react-router-dom";
 import Login from "@/components/login/Login";
+import Toggle from "@/components/ui/toggle";
 import { useAuth } from "@/utility/AuthContext";
-import { useState, type FC } from "react";
-import { type MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
+import { useState, type FC, type MouseEvent } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const NavBar: FC = () => {

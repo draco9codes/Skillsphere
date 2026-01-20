@@ -1,7 +1,7 @@
-import { XIcon } from "lucide-react";
-import loginImage from "../../assets/loginimg.png";
-import { useState } from "react";
 import { http } from "@/utility/HTTPUtility";
+import { XIcon } from "lucide-react";
+import { useState } from "react";
+import loginImage from "../../assets/loginimg.png";
 
 interface LoginProps {
   onSubmit: () => void;
@@ -16,15 +16,23 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
   }
   const handleSubmit = async () => {
     try {
+      console.log("Submitting login with", { email, password });
       const response = await http.post<LoginResponse>("/auth/login", {
         email,
         password,
       });
 
+      console.log("Login response:", response);
       localStorage.setItem("token", response.token);
       onSubmit();
     } catch (err: any) {
-      console.error(err.response?.data || "Login failed");
+      console.error("Login error details:", err);
+      console.error("Response:", err.response?.data);
+      console.error("Status:", err.response?.status);
+      alert(
+        err.response?.data?.message ||
+          "Login failed. Check console for details.",
+      );
     }
   };
 
