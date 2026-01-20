@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.skillsphere.backend.service.HomeService;
 
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/api/home")
 @CrossOrigin(origins = "http://localhost:5173")
 public class HomeController {
 

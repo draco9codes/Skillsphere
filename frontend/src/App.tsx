@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/landingPage/LandingPage";
 import NavBar from "./pages/navBar/NavBar";
 import { LogIn } from "lucide-react";
-import { AuthProvider } from "./components/AuthContext";
+import { AuthProvider } from "./utility/AuthContext";
 
 function App() {
   return (

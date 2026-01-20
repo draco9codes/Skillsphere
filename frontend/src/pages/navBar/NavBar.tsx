@@ -3,9 +3,11 @@ import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
 import { MdTerminal } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Login from "@/components/login/Login";
-import { useAuth } from "@/components/AuthContext";
+import { useAuth } from "@/utility/AuthContext";
 import { useState, type FC } from "react";
 import { type MouseEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import logo from "../../assets/logo.png";
 
 const NavBar: FC = () => {
   const { user } = useAuth();
@@ -23,9 +25,10 @@ const NavBar: FC = () => {
         <div className="relative max-w-[1400px] mx-auto px-5 flex items-center h-full">
           {/* LEFT */}
           <div className="flex items-center gap-2">
-            <MdTerminal
-              className="animate-pulse [animation-duration:2s] text-[#5b8db0]"
-              size={40}
+            <img
+              src={logo}
+              alt="Skillsphere Logo"
+              className="w-12 h-12 animate-pulse [animation-duration:2s] text-[#5b8db0]"
             />
             <div className="font-bold text-[#5b8db0] font-space-grotesk text-xl">
               <Link to="/">Skillsphere</Link>
@@ -118,19 +121,30 @@ const NavBar: FC = () => {
           </div>
         </div>
       </div>
-      {loginOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="relative w-full max-w-md">
-            <button
-              className="absolute top-2 right-2 text-white text-xl"
-              onClick={() => setLoginOpen(false)}
+      <AnimatePresence>
+        {loginOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="relative w-full max-w-md"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              ×
-            </button>
-            <Login onSubmit={() => setLoginOpen(false)} />
-          </div>
-        </div>
-      )}
+              <Login
+                onSubmit={() => setLoginOpen(false)}
+                onClose={() => setLoginOpen(false)}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
