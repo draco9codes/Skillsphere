@@ -2,6 +2,7 @@ import { http } from "@/utility/HTTPUtility";
 import { XIcon } from "lucide-react";
 import { useState } from "react";
 import loginImage from "../../assets/loginimg.png";
+import { useAuth } from "@/utility/AuthContext";
 
 interface LoginProps {
   onSubmit: () => void;
@@ -11,7 +12,10 @@ interface LoginProps {
 const Login = ({ onSubmit, onClose }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useAuth();
+
   interface LoginResponse {
+    user: { id: number; email: string };
     token: string;
   }
   const handleSubmit = async () => {
@@ -24,6 +28,15 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
 
       console.log("Login response:", response);
       localStorage.setItem("token", response.token);
+      localStorage.setItem("user", JSON.stringify(response.user));
+
+      // Update AuthContext state
+      login({
+        id: response.user.id.toString(),
+        email: response.user.email,
+        name: response.user.email, // or add name to your response
+      });
+
       onSubmit();
     } catch (err: any) {
       console.error("Login error details:", err);

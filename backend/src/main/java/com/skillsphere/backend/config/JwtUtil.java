@@ -1,4 +1,4 @@
-package com.skillsphere.backend.security;
+package com.skillsphere.backend.config;
 
 import java.util.Date;
 

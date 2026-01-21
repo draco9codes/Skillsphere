@@ -3,7 +3,7 @@ package com.skillsphere.backend.dto;
 import lombok.Data;
 
 @Data
-public class LoginRequest {
+public class UserResponseDTO {
+    private Long id;
     private String email;
-    private String password;
 }

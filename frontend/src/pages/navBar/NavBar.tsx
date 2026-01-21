@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const NavBar: FC = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
   const handleJourneyClick = (e: MouseEvent<HTMLAnchorElement>) => {
@@ -17,6 +17,11 @@ const NavBar: FC = () => {
       setLoginOpen(true);
     }
   };
+
+  const handleLogout = () => {
+    logout();
+  };
+
   return (
     <>
       <div className="sticky top-0 z-50 w-full h-16 bg-[#edefee] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
@@ -37,18 +42,7 @@ const NavBar: FC = () => {
           <div className="absolute left-1/2 -translate-x-1/2 flex gap-6 text-black dark:text-white">
             <Link
               to="/discover"
-              className="
-              relative inline-block px-2
-              transform-gpu
-              transition-all duration-300 ease-out
-              hover:scale-125
-              hover:text-[#5b8db0]
-              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
-              after:absolute after:left-1/2 after:-bottom-2
-              after:h-[3px] after:w-0 after:bg-[#5b8db0]
-              after:transition-all after:duration-300
-              hover:after:left-0 hover:after:w-full
-              font-['Space_Grotesk']"
+              className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
               Discover
             </Link>
@@ -56,51 +50,21 @@ const NavBar: FC = () => {
             <Link
               onClick={handleJourneyClick}
               to="/journey"
-              className="
-              relative inline-block px-2
-              transform-gpu
-              transition-all duration-300 ease-out
-              hover:scale-125
-              hover:text-[#5b8db0]
-              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
-              after:absolute after:left-1/2 after:-bottom-2
-              after:h-[3px] after:w-0 after:bg-[#5b8db0]
-              after:transition-all after:duration-300
-              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+              className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
               My Journey
             </Link>
 
             <Link
               to="/rooms"
-              className="
-              relative inline-block px-2
-              transform-gpu
-              transition-all duration-300 ease-out
-              hover:scale-125
-              hover:text-[#5b8db0]
-              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
-              after:absolute after:left-1/2 after:-bottom-2
-              after:h-[3px] after:w-0 after:bg-[#5b8db0]
-              after:transition-all after:duration-300
-              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+              className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
               Study Rooms
             </Link>
 
             <Link
               to="/projects"
-              className="
-              relative inline-block px-2
-              transform-gpu
-              transition-all duration-300 ease-out
-              hover:scale-125
-              hover:text-[#5b8db0]
-              hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)]
-              after:absolute after:left-1/2 after:-bottom-2
-              after:h-[3px] after:w-0 after:bg-[#5b8db0]
-              after:transition-all after:duration-300
-              hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
+              className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
               Projects
             </Link>
@@ -116,6 +80,16 @@ const NavBar: FC = () => {
             <MoonIcon className="ml-4" size={22} />
             <BellIcon className="ml-4" size={22} />
             <UserCircle className="ml-4" size={22} />
+
+            {/* Logout Button - only show when user is logged in */}
+            {user && (
+              <button
+                onClick={handleLogout}
+                className="ml-4 px-3 py-1 rounded-md bg-[#5b8db0] text-white hover:bg-[#4a7a96] transition-colors duration-200 font-['Space_Grotesk']"
+              >
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -127,6 +101,7 @@ const NavBar: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={() => setLoginOpen((prev) => !prev)}
           >
             <motion.div
               className="relative w-full max-w-md"
@@ -134,6 +109,7 @@ const NavBar: FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
               <Login
                 onSubmit={() => setLoginOpen(false)}
