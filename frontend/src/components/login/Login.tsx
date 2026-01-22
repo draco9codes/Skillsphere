@@ -1,8 +1,8 @@
+import { useAuth } from "@/utility/AuthContext";
 import { http } from "@/utility/HTTPUtility";
 import { XIcon } from "lucide-react";
 import { useState } from "react";
 import loginImage from "../../assets/loginimg.png";
-import { useAuth } from "@/utility/AuthContext";
 
 interface LoginProps {
   onSubmit: () => void;
@@ -66,7 +66,7 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
       <div className="relative p-8 flex flex-col justify-center">
         <button
           onClick={onClose}
-          className="absolute top-4 right-6 text-gray-400 hover:text-gray-600 text-xl leading-none"
+          className="absolute top-4 right-12 text-gray-400 hover:text-gray-600 text-xl leading-none"
           aria-label="Close"
         >
           <XIcon name="close" />

@@ -1,4 +1,5 @@
 import Login from "@/components/login/Login";
+import SearchBar from "@/components/SearchBar";
 import Toggle from "@/components/ui/toggle";
 import { useAuth } from "@/utility/AuthContext";
 import { AnimatePresence, motion } from "framer-motion";
@@ -10,7 +11,7 @@ import logo from "../../assets/logo.png";
 const NavBar: FC = () => {
   const { user, logout } = useAuth();
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
-
+  const [searchOpen, setSearchOpen] = useState(false);
   const handleJourneyClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!user) {
       e.preventDefault();
@@ -76,10 +77,26 @@ const NavBar: FC = () => {
               options={["Student", "Mentor"]}
               onChange={(val) => console.log(val)}
             />
-            <SearchIcon className="ml-4" size={22} />
-            <MoonIcon className="ml-4" size={22} />
-            <BellIcon className="ml-4" size={22} />
-            <UserCircle className="ml-4" size={22} />
+            <div className="relative">
+              <SearchIcon
+                className="ml-4 cursor-pointer hover:text-[#5b8db0] hover:scale-110 transition-transform duration-200"
+                size={22}
+                onClick={() => setSearchOpen((prev) => !prev)}
+              />
+              {searchOpen && <SearchBar />}
+            </div>
+            <MoonIcon
+              className="ml-4 cursor-pointer hover:text-[#5b8db0] hover:scale-110 transition-transform duration-200"
+              size={22}
+            />
+            <BellIcon
+              className="ml-4 cursor-pointer hover:text-[#5b8db0] hover:scale-110 transition-transform duration-200"
+              size={22}
+            />
+            <UserCircle
+              className="ml-4 cursor-pointer hover:text-[#5b8db0] hover:scale-110 transition-transform duration-200"
+              size={22}
+            />
 
             {/* Logout Button - only show when user is logged in */}
             {user && (
