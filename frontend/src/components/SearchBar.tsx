@@ -30,13 +30,18 @@ const SearchBar = () => {
   }, [query]);
 
   return (
-    <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-64 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg p-2 z-50">
+    <div
+      className="absolute top-11 left-1/2 -translate-x-1/2 w-96 
+             bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 
+             rounded-md shadow-lg p-3 z-50"
+    >
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
-        className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#5b8db0]"
+        className="w-full px-3 py-2 text-sm rounded-md border border-gray-300 
+               dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#5b8db0]"
       />
 
       {loading && <div className="mt-1 text-xs text-gray-500">Loading...</div>}

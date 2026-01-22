@@ -3,7 +3,13 @@ import SearchBar from "@/components/SearchBar";
 import Toggle from "@/components/ui/toggle";
 import { useAuth } from "@/utility/AuthContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { BellIcon, MoonIcon, SearchIcon, UserCircle } from "lucide-react";
+import {
+  BellIcon,
+  LogOut,
+  MoonIcon,
+  SearchIcon,
+  UserCircle,
+} from "lucide-react";
 import { useState, type FC, type MouseEvent } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -28,14 +34,22 @@ const NavBar: FC = () => {
       <div className="sticky top-0 z-50 w-full h-16 bg-[#edefee] dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="relative max-w-[1400px] mx-auto px-5 flex items-center h-full">
           {/* LEFT */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 group cursor-pointer">
             <img
               src={logo}
               alt="Skillsphere Logo"
               className="w-12 h-12 animate-pulse [animation-duration:2s] text-[#5b8db0]"
             />
-            <div className="font-bold text-[#5b8db0] font-space-grotesk text-xl">
-              <Link to="/">Skillsphere</Link>
+            <div className="relative font-bold text-[#5b8db0] font-space-grotesk text-xl">
+              <Link
+                to="/"
+                className="relative inline-block transition-colors duration-500 ease-in-out 
+                 group-hover:text-[#4a7a96] after:absolute after:left-0 after:-bottom-1 
+                 after:h-[2px] after:w-0 after:bg-[#5b8db0] after:transition-all 
+                 after:duration-500 group-hover:after:w-full"
+              >
+                Skillsphere
+              </Link>
             </div>
           </div>
 
@@ -102,9 +116,14 @@ const NavBar: FC = () => {
             {user && (
               <button
                 onClick={handleLogout}
-                className="ml-4 px-3 py-1 rounded-md bg-[#5b8db0] text-white hover:bg-[#4a7a96] transition-colors duration-200 font-['Space_Grotesk']"
+                className="ml-4 px-2 py-2 rounded-lg 
+                         bg-gradient-to-r from-[#5b8db0] to-[#4a7a96] 
+                         text-white font-['Space_Grotesk'] font-medium
+                         shadow-md hover:shadow-lg 
+                         transition-all duration-300 ease-in-out
+                         hover:brightness-110 hover:scale-105 flex items-center gap-2"
               >
-                Logout
+                <LogOut size={18} />
               </button>
             )}
           </div>
