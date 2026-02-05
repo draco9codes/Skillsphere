@@ -14,6 +14,8 @@ import com.skillsphere.backend.dto.LoginRequestDTO;
 import com.skillsphere.backend.dto.LoginResponseDTO;
 import com.skillsphere.backend.service.AuthService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -24,16 +26,9 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO req) {
+    public ResponseEntity<LoginResponseDTO> userLogin(@Valid @RequestBody LoginRequestDTO req) {
         
         LoginResponseDTO response = authService.login(req);
-        logger.info("response::" + response.toString());
-
-        System.out.println(
-    new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder()
-        .encode("test123")
-);
-
 
         return ResponseEntity.ok(response);
     }

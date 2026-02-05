@@ -10,6 +10,7 @@ import com.skillsphere.backend.dto.LoginRequestDTO;
 import com.skillsphere.backend.dto.LoginResponseDTO;
 import com.skillsphere.backend.dto.UserResponseDTO;
 import com.skillsphere.backend.entity.UserEntity;
+import com.skillsphere.backend.exception.BadCredentialsException;
 import com.skillsphere.backend.mapper.UserMapper;
 import com.skillsphere.backend.repo.AuthRepo;
 
@@ -32,17 +33,14 @@ public class AuthServiceImpl implements AuthService {
         UserEntity user = userRepository
                 .findByUsername(request.getEmail())
                 .orElseThrow(() ->
-                        new RuntimeException("Invalid credentials"));
+                        new BadCredentialsException("User not found with email: " + request.getEmail()));
 
         System.out.println("Raw password length: {}"+ request.getPassword().length());
-
-        logger.info("Encoded password prefix: {}", user.getUserPassword().substring(0, 4));
-        logger.info("Encoded password prefix: {}", request.getPassword().substring(0, 4));
 
         if (!passwordEncoder.matches(
                 request.getPassword(),
                 user.getUserPassword())) {
-            throw new RuntimeException("Invalid credentials");
+            throw new BadCredentialsException("Invalid credentials");
         }
 
         String token = jwtUtil.generateToken(user.getUsername());

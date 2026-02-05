@@ -1,4 +1,4 @@
-import { useAuth } from "@/utility/AuthContext";
+import { useAuth } from "@/routes/AuthContext";
 import { http } from "@/utility/HTTPUtility";
 import { XIcon } from "lucide-react";
 import { useState } from "react";
@@ -13,8 +13,12 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth();
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>(
+    {},
+  );
 
   interface LoginResponse {
+    status: number;
     user: { id: number; email: string };
     token: string;
   }
@@ -29,7 +33,6 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
       console.log("Login response:", response);
       localStorage.setItem("token", response.token);
       localStorage.setItem("user", JSON.stringify(response.user));
-
       // Update AuthContext state
       login({
         id: response.user.id.toString(),
@@ -39,13 +42,15 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
 
       onSubmit();
     } catch (err: any) {
-      console.error("Login error details:", err);
-      console.error("Response:", err.response?.data);
-      console.error("Status:", err.response?.status);
-      alert(
-        err.response?.data?.message ||
-          "Login failed. Check console for details.",
-      );
+      if (
+        err.response?.status === 400 &&
+        typeof err.response.data === "object"
+      ) {
+        setErrors(err.response.data); // store field-level errors
+      } else {
+        setErrors({});
+        alert(err.response?.data?.message || "Login failed");
+      }
     }
   };
 
@@ -76,20 +81,28 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
         <p className="mt-1 text-sm text-gray-500">Welcome back</p>
 
         <div className="mt-6 ml-2 space-y-4">
-          <input
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-9/10 rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#FF7E5F] focus:ring-1 focus:ring-[#FF7E5F]"
-          />
+          {/* Email field */}
+          <div className="flex flex-col">
+            <input
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-9/10 rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#FF7E5F] focus:ring-1 focus:ring-[#FF7E5F]"
+            />
+            <span className="text-xs text-red-600 mt-1">{errors.email}</span>
+          </div>
 
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            className="w-9/10 rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#FF7E5F] focus:ring-1 focus:ring-[#FF7E5F]"
-          />
+          {/* Password field */}
+          <div className="flex flex-col">
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              className="w-9/10 rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-[#FF7E5F] focus:ring-1 focus:ring-[#FF7E5F]"
+            />
+            <span className="text-xs text-red-600 mt-1">{errors.password}</span>
+          </div>
 
           <button
             onClick={handleSubmit}

@@ -1,4 +1,3 @@
-import Card from "../../components/card/Card";
 import axios from "axios";
 import "./Home.css";
 import { useEffect, useState } from "react";

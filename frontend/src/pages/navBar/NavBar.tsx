@@ -1,7 +1,7 @@
 import Login from "@/components/login/Login";
 import SearchBar from "@/components/SearchBar";
 import Toggle from "@/components/ui/toggle";
-import { useAuth } from "@/utility/AuthContext";
+import { useAuth } from "@/routes/AuthContext";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   BellIcon,
@@ -10,24 +10,56 @@ import {
   SearchIcon,
   UserCircle,
 } from "lucide-react";
-import { useState, type FC, type MouseEvent } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState, type FC, type MouseEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { Toast } from "@/components/toast/Toast";
 
-const NavBar: FC = () => {
+type NavBarProps = {
+  showLoginComponent: boolean;
+  setShowLoginComponent: (v: boolean) => void;
+  afterLoginPath: string;
+  setAfterLoginPath: (p: string) => void;
+};
+
+const NavBar: FC<NavBarProps> = ({
+  showLoginComponent,
+  setShowLoginComponent,
+  afterLoginPath,
+  setAfterLoginPath,
+}) => {
+  const navigate = useNavigate();
+  const [toastmessage, setToastmessage] = useState("");
   const { user, logout } = useAuth();
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
   const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect(() => {
+    setLoginOpen(showLoginComponent);
+  }, [showLoginComponent]);
+
   const handleJourneyClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (!user) {
       e.preventDefault();
       setLoginOpen(true);
     }
   };
-
+  const [isNavMessage, setIsNavMessage] = useState(false);
   const handleLogout = () => {
+    setIsNavMessage(true);
+    setToastmessage("Logout Successful");
     logout();
   };
+
+  useEffect(() => {
+    if (!isNavMessage) return;
+
+    const id = window.setTimeout(() => {
+      setIsNavMessage(false);
+    }, 3000);
+
+    return () => window.clearTimeout(id);
+  }, [isNavMessage]);
 
   return (
     <>
@@ -63,7 +95,7 @@ const NavBar: FC = () => {
             </Link>
 
             <Link
-              onClick={handleJourneyClick}
+              // onClick={handleJourneyClick}
               to="/journey"
               className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
@@ -129,6 +161,11 @@ const NavBar: FC = () => {
           </div>
         </div>
       </div>
+      <Toast
+        open={isNavMessage}
+        message={toastmessage}
+        onClose={() => setIsNavMessage(false)}
+      />
       <AnimatePresence>
         {loginOpen && (
           <motion.div
@@ -137,7 +174,10 @@ const NavBar: FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={() => setLoginOpen((prev) => !prev)}
+            onClick={() => {
+              setLoginOpen(false);
+              setShowLoginComponent(false);
+            }}
           >
             <motion.div
               className="relative w-full max-w-md"
@@ -148,8 +188,23 @@ const NavBar: FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <Login
-                onSubmit={() => setLoginOpen(false)}
-                onClose={() => setLoginOpen(false)}
+                onSubmit={() => {
+                  setLoginOpen(false);
+                  setShowLoginComponent(false);
+
+                  setIsNavMessage(true);
+                  setToastmessage("Login Successful");
+
+                  const target = afterLoginPath || "/home";
+                  navigate(target, { replace: true });
+
+                  // optional: clear it
+                  setAfterLoginPath("/home");
+                }}
+                onClose={() => {
+                  setLoginOpen(false);
+                  setShowLoginComponent(false);
+                }}
               />
             </motion.div>
           </motion.div>
