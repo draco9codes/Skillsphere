@@ -1,0 +1,404 @@
+2026-02-10 00:40:07 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:40:07 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:40:07 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:40:07 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:40:07 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:40:07 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:40:07 INFO  HikariDataSource:349 - HikariPool-18 - Shutdown initiated...
+2026-02-10 00:40:07 INFO  HikariDataSource:351 - HikariPool-18 - Shutdown completed.
+2026-02-10 00:40:08 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:40:08 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:40:08 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:40:08 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:40:08 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:40:08 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:40:08 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:40:08 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:40:08 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:40:08 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 130 ms
+2026-02-10 00:40:08 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:40:08 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:40:08 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:40:08 INFO  HikariDataSource:109 - HikariPool-19 - Starting...
+2026-02-10 00:40:08 INFO  HikariPool:580 - HikariPool-19 - Added connection org.postgresql.jdbc.PgConnection@6054bd9d
+2026-02-10 00:40:08 INFO  HikariDataSource:122 - HikariPool-19 - Start completed.
+2026-02-10 00:40:08 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-19)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:40:08 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:40:09 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:40:09 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:40:09 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:40:09 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:40:09 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:40:09 INFO  BackendApplication:59 - Started BackendApplication in 1.228 seconds (process running for 5397.772)
+2026-02-10 00:40:09 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:40:09 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:40:09 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:40:09 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:41:08 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:41:08 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:41:08 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:08 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:41:08 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:08 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:41:08 INFO  HikariDataSource:349 - HikariPool-19 - Shutdown initiated...
+2026-02-10 00:41:09 INFO  HikariDataSource:351 - HikariPool-19 - Shutdown completed.
+2026-02-10 00:41:09 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:41:09 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:41:09 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:41:09 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:41:09 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:41:09 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:09 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:41:09 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:41:09 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:41:09 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 102 ms
+2026-02-10 00:41:09 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:41:09 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:41:09 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:41:09 INFO  HikariDataSource:109 - HikariPool-20 - Starting...
+2026-02-10 00:41:09 INFO  HikariPool:580 - HikariPool-20 - Added connection org.postgresql.jdbc.PgConnection@2b209c52
+2026-02-10 00:41:09 INFO  HikariDataSource:122 - HikariPool-20 - Start completed.
+2026-02-10 00:41:09 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-20)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:41:09 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:41:09 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:41:09 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:41:09 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:41:09 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:09 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:41:09 INFO  BackendApplication:59 - Started BackendApplication in 0.839 seconds (process running for 5458.524)
+2026-02-10 00:41:09 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:41:09 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:41:09 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:41:09 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:41:19 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:41:19 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:41:19 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:19 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:41:19 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:19 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:41:19 INFO  HikariDataSource:349 - HikariPool-20 - Shutdown initiated...
+2026-02-10 00:41:19 INFO  HikariDataSource:351 - HikariPool-20 - Shutdown completed.
+2026-02-10 00:41:19 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:41:19 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:41:19 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:41:19 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:41:20 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:41:20 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:20 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:41:20 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:41:20 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:41:20 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 104 ms
+2026-02-10 00:41:20 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:41:20 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:41:20 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:41:20 INFO  HikariDataSource:109 - HikariPool-21 - Starting...
+2026-02-10 00:41:20 INFO  HikariPool:580 - HikariPool-21 - Added connection org.postgresql.jdbc.PgConnection@576d9242
+2026-02-10 00:41:20 INFO  HikariDataSource:122 - HikariPool-21 - Start completed.
+2026-02-10 00:41:20 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-21)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:41:20 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:41:20 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:41:20 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:41:20 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:41:20 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:41:20 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:41:20 INFO  BackendApplication:59 - Started BackendApplication in 0.804 seconds (process running for 5469.243)
+2026-02-10 00:41:20 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:41:20 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:41:20 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:41:20 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:42:01 INFO  [/]:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-10 00:42:01 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2026-02-10 00:42:01 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2026-02-10 00:42:02 INFO  JwtUtil:31 - Generating JWT token for user: samar@gscpl.com
+2026-02-10 00:42:02 INFO  JwtUtil:42 - ? JWT token generated successfully for user: samar@gscpl.com
+2026-02-10 00:44:14 INFO  JwtUtil:31 - Generating JWT token for user: samar@gscpl.com
+2026-02-10 00:44:14 INFO  JwtUtil:42 - ? JWT token generated successfully for user: samar@gscpl.com
+2026-02-10 00:44:19 INFO  JwtAuthenticationFilter:50 - ? JWT validated for user: samar@gscpl.com
+2026-02-10 00:44:23 INFO  JwtAuthenticationFilter:50 - ? JWT validated for user: samar@gscpl.com
+2026-02-10 00:49:31 INFO  JwtAuthenticationFilter:50 - ? JWT validated for user: samar@gscpl.com
+2026-02-10 00:51:08 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:51:08 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:51:08 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:08 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:51:08 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:08 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:08 INFO  HikariDataSource:349 - HikariPool-21 - Shutdown initiated...
+2026-02-10 00:51:08 INFO  HikariDataSource:351 - HikariPool-21 - Shutdown completed.
+2026-02-10 00:51:08 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:51:08 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:51:08 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:51:08 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:51:08 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:51:08 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:08 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:51:08 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:51:08 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:51:08 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 130 ms
+2026-02-10 00:51:08 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:51:08 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:51:08 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:51:08 INFO  HikariDataSource:109 - HikariPool-22 - Starting...
+2026-02-10 00:51:09 INFO  HikariPool:580 - HikariPool-22 - Added connection org.postgresql.jdbc.PgConnection@1f0e7046
+2026-02-10 00:51:09 INFO  HikariDataSource:122 - HikariPool-22 - Start completed.
+2026-02-10 00:51:09 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-22)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:51:09 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:51:09 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:09 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:51:09 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:51:09 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:09 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:51:09 INFO  BackendApplication:59 - Started BackendApplication in 0.89 seconds (process running for 6058.14)
+2026-02-10 00:51:09 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:51:09 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:51:09 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:51:09 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:51:13 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:51:13 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:51:13 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:13 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:51:13 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:13 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:13 INFO  HikariDataSource:349 - HikariPool-22 - Shutdown initiated...
+2026-02-10 00:51:13 INFO  HikariDataSource:351 - HikariPool-22 - Shutdown completed.
+2026-02-10 00:51:13 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:51:13 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:51:13 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:51:13 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:51:13 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:51:13 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:13 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:51:13 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:51:13 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:51:13 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 109 ms
+2026-02-10 00:51:13 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:51:13 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:51:13 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:51:13 INFO  HikariDataSource:109 - HikariPool-23 - Starting...
+2026-02-10 00:51:13 INFO  HikariPool:580 - HikariPool-23 - Added connection org.postgresql.jdbc.PgConnection@55d96cea
+2026-02-10 00:51:13 INFO  HikariDataSource:122 - HikariPool-23 - Start completed.
+2026-02-10 00:51:13 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-23)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:51:13 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:51:14 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:14 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:51:14 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:51:14 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:14 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:51:14 INFO  BackendApplication:59 - Started BackendApplication in 0.767 seconds (process running for 6062.696)
+2026-02-10 00:51:14 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:51:14 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:51:14 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:51:14 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:51:15 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:51:15 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:51:15 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:15 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:51:15 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:15 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:15 INFO  HikariDataSource:349 - HikariPool-23 - Shutdown initiated...
+2026-02-10 00:51:15 INFO  HikariDataSource:351 - HikariPool-23 - Shutdown completed.
+2026-02-10 00:51:15 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:51:15 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:51:16 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:51:16 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:51:16 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:51:16 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:16 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:51:16 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:51:16 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:51:16 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 104 ms
+2026-02-10 00:51:16 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:51:16 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:51:16 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:51:16 INFO  HikariDataSource:109 - HikariPool-24 - Starting...
+2026-02-10 00:51:16 INFO  HikariPool:580 - HikariPool-24 - Added connection org.postgresql.jdbc.PgConnection@7b5de02
+2026-02-10 00:51:16 INFO  HikariDataSource:122 - HikariPool-24 - Start completed.
+2026-02-10 00:51:16 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-24)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:51:16 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:51:16 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:16 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:51:16 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:51:16 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:16 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:51:16 INFO  BackendApplication:59 - Started BackendApplication in 0.943 seconds (process running for 6065.468)
+2026-02-10 00:51:16 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:51:16 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:51:16 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:51:16 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:51:40 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:51:40 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:51:40 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:40 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:51:40 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:40 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:40 INFO  HikariDataSource:349 - HikariPool-24 - Shutdown initiated...
+2026-02-10 00:51:42 INFO  HikariDataSource:351 - HikariPool-24 - Shutdown completed.
+2026-02-10 00:51:42 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:51:42 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:51:42 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:51:42 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 7 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:51:42 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:51:42 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:42 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:51:42 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:51:42 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:51:42 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 129 ms
+2026-02-10 00:51:42 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:51:42 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:51:42 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:51:42 INFO  HikariDataSource:109 - HikariPool-25 - Starting...
+2026-02-10 00:51:43 INFO  HikariPool:580 - HikariPool-25 - Added connection org.postgresql.jdbc.PgConnection@700b1809
+2026-02-10 00:51:43 INFO  HikariDataSource:122 - HikariPool-25 - Start completed.
+2026-02-10 00:51:43 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-25)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:51:43 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:51:43 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:43 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:51:43 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:51:43 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:43 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:51:43 INFO  BackendApplication:59 - Started BackendApplication in 1.341 seconds (process running for 6092.102)
+2026-02-10 00:51:43 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:51:43 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:51:43 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:51:43 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:51:53 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:51:53 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:51:53 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:53 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:51:53 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:53 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:53 INFO  HikariDataSource:349 - HikariPool-25 - Shutdown initiated...
+2026-02-10 00:51:53 INFO  HikariDataSource:351 - HikariPool-25 - Shutdown completed.
+2026-02-10 00:51:53 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:51:53 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:51:53 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:51:53 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 7 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:51:53 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:51:53 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:53 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:51:53 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:51:53 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:51:53 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 107 ms
+2026-02-10 00:51:53 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:51:53 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:51:53 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:51:53 INFO  HikariDataSource:109 - HikariPool-26 - Starting...
+2026-02-10 00:51:54 INFO  HikariPool:580 - HikariPool-26 - Added connection org.postgresql.jdbc.PgConnection@2b1993b8
+2026-02-10 00:51:54 INFO  HikariDataSource:122 - HikariPool-26 - Start completed.
+2026-02-10 00:51:54 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-26)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:51:54 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:51:54 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:51:54 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:51:54 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:51:54 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:51:54 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:51:54 INFO  BackendApplication:59 - Started BackendApplication in 0.992 seconds (process running for 6103.269)
+2026-02-10 00:51:54 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:51:54 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:51:54 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:51:54 INFO  BackendApplication:17 - ========================================
+2026-02-10 00:53:57 INFO  [/]:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-10 00:53:57 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2026-02-10 00:53:57 INFO  DispatcherServlet:554 - Completed initialization in 0 ms
+2026-02-10 00:53:57 INFO  JwtAuthenticationFilter:50 - ? JWT validated for user: samar@gscpl.com
+2026-02-10 00:53:57 INFO  JwtUtil:31 - Generating JWT token for user: samar@gscpl.com
+2026-02-10 00:53:57 INFO  JwtUtil:42 - ? JWT token generated successfully for user: samar@gscpl.com
+2026-02-10 00:54:00 INFO  JwtAuthenticationFilter:50 - ? JWT validated for user: samar@gscpl.com
+2026-02-10 00:54:56 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211 - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-02-10 00:54:56 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-10 00:54:56 INFO  Http11NioProtocol:168 - Pausing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:54:56 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-10 00:54:56 INFO  Http11NioProtocol:168 - Stopping ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:54:56 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:54:56 INFO  HikariDataSource:349 - HikariPool-26 - Shutdown initiated...
+2026-02-10 00:54:56 INFO  HikariDataSource:351 - HikariPool-26 - Shutdown completed.
+2026-02-10 00:54:56 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.17 with PID 3464 (C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere\backend\target\classes started by shiva in C:\Users\shiva.DESKTOP-B3S32LM\OneDrive\Desktop\Skillsphere)
+2026-02-10 00:54:56 INFO  BackendApplication:652 - No active profile set, falling back to 1 default profile: "default"
+2026-02-10 00:54:56 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-10 00:54:56 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 6 ms. Found 3 JPA repository interfaces.
+2026-02-10 00:54:56 INFO  TomcatWebServer:111 - Tomcat initialized with port 8083 (http)
+2026-02-10 00:54:56 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:54:56 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-10 00:54:56 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/10.1.48]
+2026-02-10 00:54:56 INFO  [/]:168 - Initializing Spring embedded WebApplicationContext
+2026-02-10 00:54:56 INFO  ServletWebServerApplicationContext:301 - Root WebApplicationContext: initialization completed in 105 ms
+2026-02-10 00:54:56 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-10 00:54:56 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2026-02-10 00:54:56 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-10 00:54:56 INFO  HikariDataSource:109 - HikariPool-27 - Starting...
+2026-02-10 00:54:57 INFO  HikariPool:580 - HikariPool-27 - Added connection org.postgresql.jdbc.PgConnection@4075899
+2026-02-10 00:54:57 INFO  HikariDataSource:122 - HikariPool-27 - Start completed.
+2026-02-10 00:54:57 INFO  pooling:163 - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-27)']
+	Database driver: undefined/unknown
+	Database version: 17.6
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-10 00:54:57 INFO  JtaPlatformInitiator:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-10 00:54:57 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-10 00:54:57 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-02-10 00:54:57 INFO  OptionalLiveReloadServer:59 - LiveReload server is running on port 35729
+2026-02-10 00:54:57 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8083"]
+2026-02-10 00:54:57 INFO  TomcatWebServer:243 - Tomcat started on port 8083 (http) with context path '/'
+2026-02-10 00:54:57 INFO  BackendApplication:59 - Started BackendApplication in 0.818 seconds (process running for 6286.175)
+2026-02-10 00:54:57 INFO  ConditionEvaluationDeltaLoggingListener:63 - Condition evaluation unchanged
+2026-02-10 00:54:57 INFO  BackendApplication:15 - ========================================
+2026-02-10 00:54:57 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-10 00:54:57 INFO  BackendApplication:17 - ========================================
