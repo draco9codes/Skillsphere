@@ -38,12 +38,6 @@ const NavBar: FC<NavBarProps> = ({
     setLoginOpen(showLoginComponent);
   }, [showLoginComponent]);
 
-  const handleJourneyClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!user) {
-      e.preventDefault();
-      setLoginOpen(true);
-    }
-  };
   const [isNavMessage, setIsNavMessage] = useState(false);
   const handleLogout = () => {
     setIsNavMessage(true);

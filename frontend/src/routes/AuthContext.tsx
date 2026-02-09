@@ -11,7 +11,7 @@ interface User {
 // Create an interface for the context value
 interface AuthContextType {
   user: User | null;
-  login: (userData: User) => void;
+  login: (userData: User, token: String) => void;
   logout: () => void;
 }
 
@@ -30,9 +30,10 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  const login = (userData: User) => {
+  const login = (userData: User, token: String) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData)); // Keep in sync
+    localStorage.setItem("token", JSON.stringify(token)); // Keep in sync
   };
 
   const logout = () => {

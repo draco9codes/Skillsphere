@@ -31,14 +31,15 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
       });
 
       console.log("Login response:", response);
-      localStorage.setItem("token", response.token);
-      localStorage.setItem("user", JSON.stringify(response.user));
-      // Update AuthContext state
-      login({
-        id: response.user.id.toString(),
-        email: response.user.email,
-        name: response.user.email, // or add name to your response
-      });
+      // Update AuthContext state and localStorage with both user and token
+      login(
+        {
+          id: response.user.id.toString(),
+          email: response.user.email,
+          name: response.user.email, // or add name to your response
+        },
+        response.token,
+      );
 
       onSubmit();
     } catch (err: any) {

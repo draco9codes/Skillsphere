@@ -1,5 +1,5 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAuth } from "@/routes/AuthContext";
 
 type ProtectedRouteProps = {
@@ -16,13 +16,18 @@ export default function ProtectedRoute({
   const { user } = useAuth();
   const location = useLocation();
 
-  // When blocked, tell NavBar to open the modal and remember what was clicked
+  const wasAuthedRef = useRef<boolean>(!!user);
+
   useEffect(() => {
-    if (!user) {
+    const isAuthedNow = !!user;
+
+    if (!isAuthedNow && !wasAuthedRef.current) {
       setShowLoginComponent(true);
       setAfterLoginPath(location.pathname);
     }
-  }, [user, location.pathname, setShowLoginComponent, setAfterLoginPath]);
+
+    wasAuthedRef.current = isAuthedNow;
+  }, [user, location.pathname, setShowLoginComponent, setAfterLoginPath]); // useEffect runs on dependency changes [web:14]
 
   if (!user) {
     return <Navigate to={navBarPathName} replace />;
