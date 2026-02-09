@@ -18,37 +18,46 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-    private static final Logger logger = LogManager.getLogger(JwtAuthenticationFilter.class);
+
+    private static final Logger logger =
+            LogManager.getLogger(JwtAuthenticationFilter.class);
 
     @Autowired
     private JwtUtil jwtUtil;
 
     @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain)
+    protected void doFilterInternal(
+            @NonNull HttpServletRequest request,
+            @NonNull HttpServletResponse response,
+            @NonNull FilterChain filterChain)
             throws ServletException, IOException {
+
         try {
-            // Extract JWT from Authorization header
-            String authHeader = request.getHeader("Authorization");
-            
-            if (authHeader != null && authHeader.startsWith("Bearer ")) {
-                String token = authHeader.substring(7);  // Remove "Bearer " prefix
-                logger.debug("Extracted JWT token from request");
+            String token = null;
 
-                // Validate and process token
-                if (jwtUtil.validateToken(token)) {
-                    String username = jwtUtil.extractUsername(token);
-                    logger.info("✓ JWT validated for user: {}", username);
-
-                    // Create authentication token
-                    UsernamePasswordAuthenticationToken auth = 
-                        new UsernamePasswordAuthenticationToken(username, null, null);
-                    SecurityContextHolder.getContext().setAuthentication(auth);
-                } else {
-                    logger.warn("✗ Invalid JWT token");
+            // ✅ Extract JWT from COOKIE
+            if (request.getCookies() != null) {
+                for (jakarta.servlet.http.Cookie cookie : request.getCookies()) {
+                    if ("jwt".equals(cookie.getName())) {
+                        token = cookie.getValue();
+                        break;
+                    }
                 }
             }
+
+            if (token != null && jwtUtil.validateToken(token)) {
+                String username = jwtUtil.extractUsername(token);
+                logger.info("✓ JWT validated for user: {}", username);
+
+                UsernamePasswordAuthenticationToken auth =
+                        new UsernamePasswordAuthenticationToken(
+                                username, null, null);
+
+                SecurityContextHolder.getContext().setAuthentication(auth);
+            }
+
         } catch (Exception e) {
-            logger.error("Error processing JWT: {}", e.getMessage());
+            logger.error("JWT processing failed", e);
         }
 
         filterChain.doFilter(request, response);

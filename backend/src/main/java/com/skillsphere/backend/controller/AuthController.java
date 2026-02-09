@@ -1,8 +1,8 @@
 package com.skillsphere.backend.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,19 +18,47 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class AuthController {
-    private static final Logger logger = LogManager.getLogger(AuthController.class);
 
     @Autowired
     private AuthService authService;
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> userLogin(@Valid @RequestBody LoginRequestDTO req) {
-        
-        LoginResponseDTO response = authService.login(req);
+    public ResponseEntity<LoginResponseDTO> userLogin(
+            @Valid @RequestBody LoginRequestDTO req) {
 
-        return ResponseEntity.ok(response);
+        LoginResponseDTO response = authService.login(req);
+        String jwtToken = response.getToken();
+
+        ResponseCookie cookie = ResponseCookie.from("jwt", jwtToken)
+                .httpOnly(true)
+                .secure(false)      //localhost
+                .sameSite("Lax")    //localhost
+                .path("/")
+                .maxAge(60 * 30)
+                .build();
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, cookie.toString())
+                .body(response); // temporary
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Void> logout() {
+        ResponseCookie deleteCookie = ResponseCookie.from("jwt", "")
+                .httpOnly(true)
+                .secure(false)          // true in prod HTTPS
+                .sameSite("None")
+                .path("/")
+                .maxAge(0)              // DELETE COOKIE
+                .build();
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.SET_COOKIE, deleteCookie.toString())
+                .build();
 }
+
+}
+
 

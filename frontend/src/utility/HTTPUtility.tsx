@@ -1,7 +1,7 @@
 import axios, { AxiosError, type AxiosRequestConfig } from "axios";
+
 const BACKEND_URL =
   import.meta.env.VITE_BACKEND_URL || "http://localhost:8083/api";
-console.log("Backend URL:", BACKEND_URL);
 
 const api = axios.create({
   baseURL: BACKEND_URL,
@@ -9,19 +9,15 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // ✅ REQUIRED FOR COOKIES
 });
 
 /**
  * Request interceptor
+ * ❌ NO Authorization header
  */
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
-
-    if (token) {
-      config.headers.set("Authorization", `Bearer ${token}`);
-    }
-
     return config;
   },
   (error: AxiosError) => Promise.reject(error),
@@ -34,7 +30,8 @@ api.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem("token");
+      // optional: redirect to login
+      console.warn("Unauthorized – session expired");
     }
     return Promise.reject(error);
   },
