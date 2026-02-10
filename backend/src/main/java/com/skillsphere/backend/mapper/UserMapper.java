@@ -8,7 +8,9 @@ import com.skillsphere.backend.entity.UserEntity;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
+    
+    @Mapping(source = "userId", target = "id")
     @Mapping(source = "username", target = "email")
+    @Mapping(source = "username", target = "name")
     UserResponseDTO toDto(UserEntity entity);
 }
-

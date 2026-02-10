@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
+        <!-- Console Appender - Show EVERYTHING (errors, warnings, info, debug) -->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
         </Console>
-
+        
+        <!-- File Appender - Only INFO level from your application -->
         <RollingFile name="File" fileName="logs/app.log" filePattern="logs/app-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
             <Filters>
+                <!-- Only log INFO level (not ERROR, WARN, DEBUG) -->
                 <LevelMatchFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
             <Policies>
@@ -19,14 +22,15 @@
     </Appenders>
 
     <Loggers>
+        <!-- Your application logger - logs to both Console AND File -->
         <Logger name="com.skillsphere.backend" level="info" additivity="false">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>  <!-- Show in console -->
+            <AppenderRef ref="File"/>     <!-- Save INFO to file -->
         </Logger>
 
+        <!-- Root logger (Spring Boot, Hibernate, etc.) - only to Console -->
         <Root level="info">
-            <AppenderRef ref="Console"/>
-            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>  <!-- Show ALL framework logs in console -->
         </Root>
     </Loggers>
 </Configuration>

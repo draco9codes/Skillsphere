@@ -33,9 +33,10 @@ public class AuthController {
 
         ResponseCookie cookie = ResponseCookie.from("jwt", jwtToken)
                 .httpOnly(true)
-                .secure(false)      //localhost
-                .sameSite("Lax")    //localhost
+                .secure(false)      
+                .sameSite("Lax")
                 .path("/")
+                .domain("localhost")
                 .maxAge(60 * 30)
                 .build();
 
@@ -49,8 +50,9 @@ public class AuthController {
         ResponseCookie deleteCookie = ResponseCookie.from("jwt", "")
                 .httpOnly(true)
                 .secure(false)          // true in prod HTTPS
-                .sameSite("None")
+                .sameSite("Lax")
                 .path("/")
+                .domain("localhost")
                 .maxAge(0)              // DELETE COOKIE
                 .build();
 

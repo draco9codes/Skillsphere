@@ -46,7 +46,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const logout = async () => {
     try {
       await http.post("/auth/logout", {}, { withCredentials: true });
-      logout();
     } finally {
       setUser(null);
     }

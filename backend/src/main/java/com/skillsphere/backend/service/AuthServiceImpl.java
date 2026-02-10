@@ -12,7 +12,7 @@ import com.skillsphere.backend.dto.UserResponseDTO;
 import com.skillsphere.backend.entity.UserEntity;
 import com.skillsphere.backend.exception.BadCredentialsException;
 import com.skillsphere.backend.mapper.UserMapper;
-import com.skillsphere.backend.repo.AuthRepo;
+import com.skillsphere.backend.repo.UserRepo;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
 
     private static final Logger logger = LogManager.getLogger(AuthService.class);
 
-    private final AuthRepo userRepository;
+    private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final UserMapper userMapper;
@@ -30,12 +30,14 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public LoginResponseDTO login(LoginRequestDTO request) {
 
-        UserEntity user = userRepository
-                .findByUsername(request.getEmail())
-                .orElseThrow(() ->
-                        new BadCredentialsException("User not found with email: " + request.getEmail()));
+        UserEntity user = userRepo
+        .findByUsername(request.getEmail())
+        .orElseThrow(() -> new BadCredentialsException("Invalid email or password"));
 
-        System.out.println("Raw password length: {}"+ request.getPassword().length());
+        if (!passwordEncoder.matches(request.getPassword(), user.getUserPassword())) {
+            throw new BadCredentialsException("Invalid email or password");
+}
+        logger.info("Raw password length: {}"+ request.getPassword().length());
 
         if (!passwordEncoder.matches(
                 request.getPassword(),

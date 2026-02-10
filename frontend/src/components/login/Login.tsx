@@ -10,7 +10,7 @@ interface LoginProps {
 }
 
 interface LoginResponse {
-  status: number;
+  token: string;
   user: {
     id: number;
     email: string;
@@ -33,7 +33,7 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
       const response = await http.post<LoginResponse>(
         "/auth/login",
         { email, password },
-        { withCredentials: true }, // 🔴 REQUIRED for cookies
+        { withCredentials: true },
       );
 
       login({
@@ -57,14 +57,16 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
   };
 
   return (
-    <div className="relative w-max h-screen bg-white rounded-lg overflow-hidden grid grid-cols-2 border border-gray-200">
+    <div className="relative w-max h-screen bg-white dark:bg-neutral-800 rounded-lg overflow-hidden grid grid-cols-2 border border-neutral-200 dark:border-neutral-700">
       {/* LEFT IMAGE */}
-      <div className="relative bg-gradient-to-br rounded-l-lg overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-black opacity-10 mix-blend-multiply" />
+      <div className="relative bg-gradient-to-br from-[#5B8DB0] to-[#4F9EAF] rounded-l-lg overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-black opacity-10 mix-blend-multiply"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-[#FF7E5F] rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-10 right-12 w-40 h-40 bg-white rounded-full opacity-30 animate-ping"></div>
         <img
           src={loginImage}
-          alt="Login"
-          className="max-h-full max-w-full object-contain relative z-10"
+          alt="Login visual"
+          className="max-h-full max-w-full object-contain relative z-10 image-blend-multiply"
         />
       </div>
 
@@ -72,13 +74,17 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
       <div className="relative p-8 flex flex-col justify-center">
         <button
           onClick={onClose}
-          className="absolute top-4 right-12 text-gray-400 hover:text-gray-600"
+          className="absolute top-4 right-12 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition"
         >
           <XIcon />
         </button>
 
-        <h1 className="text-2xl font-semibold">Sign in</h1>
-        <p className="text-sm text-gray-500">Welcome back</p>
+        <h1 className="text-2xl font-semibold text-neutral-900 dark:text-white font-space-grotesk">
+          Sign in
+        </h1>
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+          Welcome back
+        </p>
 
         <div className="mt-6 space-y-4">
           <div>
@@ -86,7 +92,7 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border px-3 py-2"
+              className="w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5B8DB0] dark:focus:ring-[#7DA8C3]"
             />
             <span className="text-xs text-red-600">{errors.email}</span>
           </div>
@@ -97,14 +103,14 @@ const Login = ({ onSubmit, onClose }: LoginProps) => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border px-3 py-2"
+              className="w-full rounded-md border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-700 text-neutral-900 dark:text-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5B8DB0] dark:focus:ring-[#7DA8C3]"
             />
             <span className="text-xs text-red-600">{errors.password}</span>
           </div>
 
           <button
             onClick={handleSubmit}
-            className="w-full rounded-md bg-[#FF7E5F] py-2 text-white"
+            className="w-full rounded-md bg-gradient-to-r from-[#5B8DB0] to-[#4F9EAF] hover:from-[#4A748E] hover:to-[#3F7E8C] py-2 text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
           >
             Continue
           </button>

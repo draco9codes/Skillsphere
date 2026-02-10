@@ -4,8 +4,11 @@ import { useState } from "react";
 import Journey from "./pages/journey/Journey";
 import LandingPage from "./pages/landingPage/LandingPage";
 import NavBar from "./pages/navBar/NavBar";
+import SkillTreeDetailPage from "./pages/skillTree/SkillTreeDetailPage";
+import DiscoverPage from "./pages/discover/DiscoverPage";
 import { AuthProvider } from "./routes/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import ColorPreview from "./pages/ColorPreview";
 
 function App() {
   // 1) This flag controls the NavBar modal
@@ -14,7 +17,7 @@ function App() {
   // 2) This stores the protected path user tried to open (e.g. "/journey")
   const [afterLoginPath, setAfterLoginPath] = useState<string>("/home");
 
-  // 3) “Safe” path to show behind the modal when blocked
+  // 3) "Safe" path to show behind the modal when blocked
   const navBarPathName = "/home";
 
   return (
@@ -31,8 +34,11 @@ function App() {
           <Routes>
             <Route path="/*" element={<Navigate to="/home" replace />} />
 
+            {/* Temporary routes for testing */}
+            <Route path="/color-preview" element={<ColorPreview />} />
+
+            {/* Public routes */}
             <Route path="/home" element={<LandingPage />} />
-            <Route path="/discover" element={<LandingPage />} />
             <Route path="/rooms" element={<LandingPage />} />
             <Route path="/projects" element={<LandingPage />} />
 
@@ -47,6 +53,8 @@ function App() {
               }
             >
               <Route path="/journey" element={<Journey />} />
+              <Route path="/discover" element={<DiscoverPage />} />
+              <Route path="/tree/:treeId" element={<SkillTreeDetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
