@@ -1,7 +1,9 @@
 import Login from "@/components/login/Login";
 import SearchBar from "@/components/SearchBar";
+import { Toast } from "@/components/toast/Toast";
 import Toggle from "@/components/ui/toggle";
 import { useAuth } from "@/routes/AuthContext";
+import { http } from "@/utility/HTTPUtility";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   BellIcon,
@@ -10,16 +12,23 @@ import {
   SearchIcon,
   UserCircle,
 } from "lucide-react";
-import { useEffect, useState, type FC, type MouseEvent } from "react";
+import { useEffect, useState, type FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { Toast } from "@/components/toast/Toast";
 
 type NavBarProps = {
   showLoginComponent: boolean;
   setShowLoginComponent: (v: boolean) => void;
   afterLoginPath: string;
   setAfterLoginPath: (p: string) => void;
+};
+
+const handleDummyCall = async () => {
+  try {
+    const response = await http.get("/home/dummy");
+  } catch (err) {
+    console.error("Error in dummy call:", err);
+  }
 };
 
 const NavBar: FC<NavBarProps> = ({
@@ -97,6 +106,7 @@ const NavBar: FC<NavBarProps> = ({
             </Link>
 
             <Link
+              onClick={handleDummyCall}
               to="/rooms"
               className="relative inline-block px-2 transform-gpu transition-all duration-300 ease-out hover:scale-125 hover:text-[#5b8db0] hover:drop-shadow-[0_0_16px_rgba(91,141,176,1)] after:absolute after:left-1/2 after:-bottom-2 after:h-[3px] after:w-0 after:bg-[#5b8db0] after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full font-['Space_Grotesk']"
             >
