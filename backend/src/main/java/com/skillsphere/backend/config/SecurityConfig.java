@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,25 +32,66 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))  // ✅ Explicit
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/home/**").permitAll()
-            .requestMatchers("/api/journey/trees/all").permitAll()
-            .requestMatchers("/api/journey/**").authenticated()
-            
-            // ⭐ ADD THESE LINES FOR PROJECTS
-            .requestMatchers("/api/projects/health").permitAll()  // Health check public
-            .requestMatchers("/api/projects/showcase").permitAll()  // Public showcase
-            .requestMatchers("/api/projects/{id}").permitAll()  // View projects (no auth needed for browsing)
-            .requestMatchers("/api/projects").permitAll()  // List projects
-            .requestMatchers("/api/projects/**").authenticated()  // Everything else needs auth
-            
-            .anyRequest().authenticated()
+                // ========================================
+                // PUBLIC ENDPOINTS (No Auth Required)
+                // ========================================
+                
+                // Auth endpoints
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/home/**").permitAll()
+                
+                // Health checks
+                .requestMatchers("/api/*/health").permitAll()
+                
+                // Journey/Skill Trees - Public browsing
+                .requestMatchers("/api/journey/trees/all").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/journey/**").permitAll()
+                
+                // Projects - Public browsing
+                .requestMatchers(HttpMethod.GET, "/api/projects").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/projects/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/projects/showcase").permitAll()
+                
+                // Study Rooms - Public browsing
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms/*/messages").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms/upcoming").permitAll()
+                
+                // ========================================
+                // AUTHENTICATED ENDPOINTS
+                // ========================================
+                
+                // Journey - Auth required for modifications
+                .requestMatchers(HttpMethod.POST, "/api/journey/**").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/journey/**").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/api/journey/**").authenticated()
+                
+                // Projects - Auth required
+                .requestMatchers(HttpMethod.POST, "/api/projects/*/start").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/projects/submissions/*").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/projects/submissions/*/complete").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/projects/my-submissions").authenticated()
+                
+                // Study Rooms - Auth required
+                .requestMatchers(HttpMethod.POST, "/api/study-rooms").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/study-rooms/*/join").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/study-rooms/*/leave").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/study-rooms/*/messages").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/study-rooms/*/close").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/study-rooms/*").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/api/study-rooms/messages/*").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms/my-rooms").authenticated()
+                .requestMatchers(HttpMethod.GET, "/api/study-rooms/my-rooms/*").authenticated()
+                
+                // All other requests require authentication
+                .anyRequest().authenticated()
             )
             .addFilterBefore(
                 jwtAuthenticationFilter,
@@ -63,11 +105,16 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         
-        config.setAllowedOrigins(Arrays.asList("http://localhost:5173"));  // ✅ Explicit origin
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));  // ✅ Include OPTIONS
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:5173",
+            "http://localhost:3000",
+            "http://127.0.0.1:5173"
+        ));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowCredentials(true);
-        config.setExposedHeaders(Arrays.asList("Set-Cookie"));  // ✅ Expose cookie header
+        config.setExposedHeaders(Arrays.asList("Set-Cookie", "Authorization", "X-User-Id"));
+        config.setMaxAge(3600L); // Cache preflight for 1 hour
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

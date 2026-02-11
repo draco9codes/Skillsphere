@@ -22,4 +22,9 @@ public class UserEntity {
     
     @Column(name = "user_password", nullable = false)
     private String userPassword;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserRole role = UserRole.STUDENT; // Default to student
+
 }

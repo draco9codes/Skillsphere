@@ -11,6 +11,10 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import ColorPreview from "./pages/ColorPreview";
 import ProjectsPage from "./pages/projects/ProjectsPage";
 import ProjectDetailPage from "./pages/projects/ProjectDetailPage";
+import StudyRoomsPage from "./pages/studyRooms/StudyRoomsPage";
+import CreateRoomPage from "./pages/studyRooms/CreateRoomPage";
+import RoomDetailPage from "./pages/studyRooms/RoomDetailPage";
+import MyRoomsPage from "./pages/studyRooms/MyRoomsPage";
 
 function App() {
   const [showLoginComponent, setShowLoginComponent] = useState(false);
@@ -36,7 +40,6 @@ function App() {
 
             {/* Public routes */}
             <Route path="/home" element={<LandingPage />} />
-            <Route path="/rooms" element={<LandingPage />} />
 
             {/* ⭐ Projects - PUBLIC but personalized when logged in */}
             <Route path="/projects" element={<ProjectsPage />} />
@@ -44,7 +47,10 @@ function App() {
               path="/projects/:projectId"
               element={<ProjectDetailPage />}
             />
-
+            <Route path="/rooms" element={<StudyRoomsPage />} />
+            <Route path="/rooms/create" element={<CreateRoomPage />} />
+            <Route path="/rooms/:id" element={<RoomDetailPage />} />
+            <Route path="/rooms/my-rooms" element={<MyRoomsPage />} />
             {/* Protected routes wrapper */}
             <Route
               element={

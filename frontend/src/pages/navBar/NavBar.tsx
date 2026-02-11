@@ -10,6 +10,7 @@ import {
   SearchIcon,
   SunIcon,
   UserCircle,
+  Users,
 } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -146,10 +147,16 @@ const NavBar: FC<NavBarProps> = ({
 
           {/* RIGHT */}
           <div className="ml-auto font-medium text-[#5B8DB0] dark:text-[#7DA8C3] font-space-grotesk text-l flex items-center">
-            <Toggle
-              options={["Student", "Mentor"]}
-              onChange={(val) => console.log(val)}
-            />
+            {user && (
+              <Link
+                to="/rooms/my-rooms"
+                className="px-3 py-1.5 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 
+                 transition-all duration-200 flex items-center gap-2"
+              >
+                <Users size={18} />
+                My Rooms
+              </Link>
+            )}
             <div className="relative">
               <SearchIcon
                 className="ml-4 cursor-pointer hover:text-[#5B8DB0] dark:hover:text-[#7DA8C3] hover:scale-110 transition-transform duration-200"
