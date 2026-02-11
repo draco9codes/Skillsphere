@@ -9,15 +9,12 @@ import DiscoverPage from "./pages/discover/DiscoverPage";
 import { AuthProvider } from "./routes/AuthContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import ColorPreview from "./pages/ColorPreview";
+import ProjectsPage from "./pages/projects/ProjectsPage";
+import ProjectDetailPage from "./pages/projects/ProjectDetailPage";
 
 function App() {
-  // 1) This flag controls the NavBar modal
   const [showLoginComponent, setShowLoginComponent] = useState(false);
-
-  // 2) This stores the protected path user tried to open (e.g. "/journey")
   const [afterLoginPath, setAfterLoginPath] = useState<string>("/home");
-
-  // 3) "Safe" path to show behind the modal when blocked
   const navBarPathName = "/home";
 
   return (
@@ -40,7 +37,13 @@ function App() {
             {/* Public routes */}
             <Route path="/home" element={<LandingPage />} />
             <Route path="/rooms" element={<LandingPage />} />
-            <Route path="/projects" element={<LandingPage />} />
+
+            {/* ⭐ Projects - PUBLIC but personalized when logged in */}
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route
+              path="/projects/:projectId"
+              element={<ProjectDetailPage />}
+            />
 
             {/* Protected routes wrapper */}
             <Route

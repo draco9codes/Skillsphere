@@ -37,11 +37,19 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()  // ✅ Allow all auth endpoints
-                .requestMatchers("/api/home/**").permitAll()
-                .requestMatchers("/api/journey/trees/all").permitAll()
-                .requestMatchers("/api/journey/**").authenticated()
-                .anyRequest().authenticated()
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/home/**").permitAll()
+            .requestMatchers("/api/journey/trees/all").permitAll()
+            .requestMatchers("/api/journey/**").authenticated()
+            
+            // ⭐ ADD THESE LINES FOR PROJECTS
+            .requestMatchers("/api/projects/health").permitAll()  // Health check public
+            .requestMatchers("/api/projects/showcase").permitAll()  // Public showcase
+            .requestMatchers("/api/projects/{id}").permitAll()  // View projects (no auth needed for browsing)
+            .requestMatchers("/api/projects").permitAll()  // List projects
+            .requestMatchers("/api/projects/**").authenticated()  // Everything else needs auth
+            
+            .anyRequest().authenticated()
             )
             .addFilterBefore(
                 jwtAuthenticationFilter,
