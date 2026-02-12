@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class AuthController {
 
     @Autowired
@@ -36,7 +34,6 @@ public class AuthController {
                 .secure(false)      
                 .sameSite("Lax")
                 .path("/")
-                .domain("localhost")
                 .maxAge(60 * 30)
                 .build();
 
@@ -52,14 +49,13 @@ public class AuthController {
                 .secure(false)          // true in prod HTTPS
                 .sameSite("Lax")
                 .path("/")
-                .domain("localhost")
                 .maxAge(0)              // DELETE COOKIE
                 .build();
 
         return ResponseEntity.ok()
                 .header(HttpHeaders.SET_COOKIE, deleteCookie.toString())
                 .build();
-}
+    }
 
 }
 

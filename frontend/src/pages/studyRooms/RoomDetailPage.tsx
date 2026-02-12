@@ -23,6 +23,8 @@ import {
   User,
   AlertCircle,
 } from "lucide-react";
+import { useStudyRoomWebSocket } from "@/hooks/useStudyRoomWebSocket";
+import { ScanLoader } from "@/components/Loader";
 
 const RoomDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -42,11 +44,6 @@ const RoomDetailPage = () => {
   useEffect(() => {
     if (id) {
       loadRoomDetail();
-      // Auto-refresh messages every 5 seconds
-      const interval = setInterval(() => {
-        loadRoomDetail(true);
-      }, 5000);
-      return () => clearInterval(interval);
     }
   }, [id, userId]);
 
@@ -71,6 +68,20 @@ const RoomDetailPage = () => {
       if (!silent) setLoading(false);
     }
   };
+
+  const { isConnected, sendMessage: sendWSMessage } = useStudyRoomWebSocket({
+    roomId: Number(id),
+    onMessageReceived: (message) => {
+      // Add new message to state
+      setRoomDetail((prev) => {
+        if (!prev) return prev;
+        return {
+          ...prev,
+          recentMessages: [...prev.recentMessages, message],
+        };
+      });
+    },
+  });
 
   const handleJoinRoom = async () => {
     if (!userId) {
@@ -109,19 +120,22 @@ const RoomDetailPage = () => {
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!messageText.trim() || !userId) return;
 
     try {
       setSendingMessage(true);
-      const request: PostMessageRequest = {
-        message: messageText.trim(),
-        messageType: "TEXT",
-      };
 
-      await studyRoomService.postMessage(Number(id), request, userId);
+      // Still save to database via REST
+      const savedMessage = await studyRoomService.postMessage(
+        Number(id),
+        { message: messageText.trim(), messageType: "TEXT" },
+        userId,
+      );
+
+      // Broadcast via WebSocket
+      sendWSMessage(savedMessage);
+
       setMessageText("");
-      await loadRoomDetail(true); // Silent reload
     } catch (err: any) {
       console.error("Failed to send message:", err);
       alert(err.message || "Failed to send message");
@@ -181,9 +195,13 @@ const RoomDetailPage = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-white via-neutral-50 to-blue-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800">
-        <div className="text-xl font-space-grotesk text-neutral-900 dark:text-white">
-          Loading room...
-        </div>
+        <ScanLoader
+          size="lg"
+          text="Loading Room..."
+          variant="radial"
+          color="#5B8DB0"
+          speed={2}
+        />
       </div>
     );
   }
@@ -341,6 +359,7 @@ const RoomDetailPage = () => {
               transition={{ delay: 0.1 }}
             >
               {/* Messages Header */}
+              {/* Messages Header */}
               <div className="px-6 py-4 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <MessageSquare className="w-5 h-5 text-[#5B8DB0]" />
@@ -351,9 +370,21 @@ const RoomDetailPage = () => {
                     ({recentMessages.length})
                   </span>
                 </div>
-                <span className="text-xs text-neutral-500">
-                  Auto-refreshes every 5s
-                </span>
+
+                {/* Connection Status Indicator */}
+                <div className="flex items-center gap-2">
+                  {isConnected ? (
+                    <span className="flex items-center gap-1 text-xs text-emerald-500 font-medium">
+                      <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                      Live
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1 text-xs text-amber-500 font-medium">
+                      <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                      Connecting...
+                    </span>
+                  )}
+                </div>
               </div>
 
               {/* Messages List */}

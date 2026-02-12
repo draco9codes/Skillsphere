@@ -48,6 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       await http.post("/auth/logout", {}, { withCredentials: true });
     } finally {
       setUser(null);
+      localStorage.removeItem("user"); // ← NEEDED! Clear UI data
     }
   };
 

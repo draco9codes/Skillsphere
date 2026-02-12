@@ -23,6 +23,7 @@ import {
   Target,
   Zap,
 } from "lucide-react";
+import { ScanLoader } from "@/components/Loader";
 
 const ProjectDetailPage = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -104,9 +105,13 @@ const ProjectDetailPage = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-white via-neutral-50 to-blue-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800">
-        <div className="text-xl font-space-grotesk text-neutral-900 dark:text-white">
-          Loading quest details...
-        </div>
+        <ScanLoader
+          size="lg"
+          text="Loading Quest Details..."
+          variant="radial"
+          color="#5B8DB0"
+          speed={2}
+        />
       </div>
     );
   }

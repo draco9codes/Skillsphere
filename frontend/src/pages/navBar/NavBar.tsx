@@ -1,22 +1,15 @@
 import SearchBar from "@/components/SearchBar";
 import { Toast } from "@/components/toast/Toast";
-import Toggle from "@/components/ui/toggle";
 import { useAuth } from "@/routes/AuthContext";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  BellIcon,
-  LogOut,
-  MoonIcon,
-  SearchIcon,
-  SunIcon,
-  UserCircle,
-  Users,
-} from "lucide-react";
+import { MoonIcon, SearchIcon, SunIcon, Users } from "lucide-react";
 import { useEffect, useState, type FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Login from "@/components/login/Login";
 import { useDarkMode } from "@/hooks/useDarkMode";
+import { NotificationsDropdown } from "./NotificationsDropdown";
+import { UserProfileDropdown } from "./UserProfileDropdown";
 
 type NavBarProps = {
   showLoginComponent: boolean;
@@ -43,16 +36,6 @@ const NavBar: FC<NavBarProps> = ({
   }, [showLoginComponent]);
 
   const [isNavMessage, setIsNavMessage] = useState(false);
-  const handleLogout = async () => {
-    try {
-      await logout();
-      setIsNavMessage(true);
-      setToastmessage("Logout Successful");
-      navigate("/", { replace: true });
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
 
   useEffect(() => {
     if (!isNavMessage) return;
@@ -146,28 +129,30 @@ const NavBar: FC<NavBarProps> = ({
           </div>
 
           {/* RIGHT */}
-          <div className="ml-auto font-medium text-[#5B8DB0] dark:text-[#7DA8C3] font-space-grotesk text-l flex items-center">
+          <div className="ml-auto flex items-center gap-2">
             {user && (
               <Link
                 to="/rooms/my-rooms"
                 className="px-3 py-1.5 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 
-                 transition-all duration-200 flex items-center gap-2"
+                 transition-all duration-200 flex items-center gap-2 font-medium text-[#5B8DB0] dark:text-[#7DA8C3] font-space-grotesk"
               >
                 <Users size={18} />
                 My Rooms
               </Link>
             )}
+
             <div className="relative">
               <SearchIcon
-                className="ml-4 cursor-pointer hover:text-[#5B8DB0] dark:hover:text-[#7DA8C3] hover:scale-110 transition-transform duration-200"
+                className="cursor-pointer text-[#5B8DB0] dark:text-[#7DA8C3] hover:scale-110 transition-transform duration-200"
                 size={22}
                 onClick={() => setSearchOpen((prev) => !prev)}
               />
               {searchOpen && <SearchBar />}
             </div>
+
             <button
               onClick={toggleDarkMode}
-              className="ml-4 p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-200"
+              className="p-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all duration-200"
               aria-label="Toggle dark mode"
               title="Toggle dark mode"
             >
@@ -183,38 +168,43 @@ const NavBar: FC<NavBarProps> = ({
                 />
               )}
             </button>
-            <BellIcon
-              className="ml-4 cursor-pointer hover:text-[#5B8DB0] dark:hover:text-[#7DA8C3] hover:scale-110 transition-transform duration-200"
-              size={22}
-            />
-            <UserCircle
-              className="ml-4 cursor-pointer hover:text-[#5B8DB0] dark:hover:text-[#7DA8C3] hover:scale-110 transition-transform duration-200"
-              size={22}
-            />
 
-            {/* Logout Button - only show when user is logged in */}
-            {user && (
-              <button
-                onClick={handleLogout}
-                className="ml-4 px-2 py-2 rounded-lg 
+            {user ? (
+              // LOGGED IN: Show Notifications + Profile
+              <>
+                <NotificationsDropdown />
+                <UserProfileDropdown />
+              </>
+            ) : (
+              // LOGGED OUT: Show Sign In button
+              <motion.button
+                onClick={() => {
+                  setLoginOpen(true);
+                  setShowLoginComponent(true);
+                }}
+                className="px-4 py-2 rounded-lg 
                          bg-gradient-to-r from-[#5B8DB0] to-[#4F9EAF] 
                          dark:from-[#7DA8C3] dark:to-[#6BB4C4]
                          text-white font-['Space_Grotesk'] font-medium
                          shadow-md hover:shadow-lg 
                          transition-all duration-300 ease-in-out
-                         hover:brightness-110 hover:scale-105 flex items-center gap-2"
+                         hover:brightness-110 hover:scale-105"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <LogOut size={18} />
-              </button>
+                Sign In
+              </motion.button>
             )}
           </div>
         </div>
       </div>
+
       <Toast
         open={isNavMessage}
         message={toastmessage}
         onClose={() => setIsNavMessage(false)}
       />
+
       <AnimatePresence>
         {loginOpen && (
           <motion.div
@@ -247,7 +237,6 @@ const NavBar: FC<NavBarProps> = ({
                   const target = afterLoginPath || "/home";
                   navigate(target, { replace: true });
 
-                  // optional: clear it
                   setAfterLoginPath("/home");
                 }}
                 onClose={() => {

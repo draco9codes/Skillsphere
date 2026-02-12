@@ -13,6 +13,7 @@ import {
   Filter,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ScanLoader } from "@/components/Loader";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState<ProjectDTO[]>([]);
@@ -99,7 +100,13 @@ const ProjectsPage = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-white via-neutral-50 to-blue-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800">
-        <div className="text-xl font-space-grotesk">Loading quests...</div>
+        <ScanLoader
+          size="lg"
+          text="Loading Quest Board..."
+          variant="radial"
+          color="#5B8DB0"
+          speed={2}
+        />
       </div>
     );
   }

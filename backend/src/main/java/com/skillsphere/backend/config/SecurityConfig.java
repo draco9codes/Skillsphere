@@ -63,7 +63,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/study-rooms/{id}").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/study-rooms/*/messages").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/study-rooms/upcoming").permitAll()
-                
+                .requestMatchers("/ws/**").permitAll()
+
                 // ========================================
                 // AUTHENTICATED ENDPOINTS
                 // ========================================
@@ -102,23 +103,27 @@ public class SecurityConfig {
     }
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
-        
-        config.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173",
-            "http://localhost:3000",
-            "http://127.0.0.1:5173"
-        ));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-        config.setAllowedHeaders(Arrays.asList("*"));
-        config.setAllowCredentials(true);
-        config.setExposedHeaders(Arrays.asList("Set-Cookie", "Authorization", "X-User-Id"));
-        config.setMaxAge(3600L); // Cache preflight for 1 hour
+public CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration config = new CorsConfiguration();
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-        
-        return source;
-    }
+    config.setAllowCredentials(true);
+
+    // IMPORTANT: patterns, so LAN IP works
+    config.setAllowedOriginPatterns(Arrays.asList(
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://192.168.*.*:5173",
+        "http://10.*.*.*:5173"
+    ));
+
+    config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+    config.setAllowedHeaders(Arrays.asList("*"));
+    config.setExposedHeaders(Arrays.asList("Set-Cookie"));
+    config.setMaxAge(3600L);
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", config);
+    return source;
+}
+
 }

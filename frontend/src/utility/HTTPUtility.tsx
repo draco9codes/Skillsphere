@@ -1,15 +1,12 @@
 import axios, { AxiosError, type AxiosRequestConfig } from "axios";
 
-const BACKEND_URL =
-  import.meta.env.VITE_BACKEND_URL || "http://localhost:8083/api";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 const api = axios.create({
   baseURL: BACKEND_URL,
   timeout: 10000,
-  headers: {
-    "Content-Type": "application/json",
-  },
-  withCredentials: true, // ✅ REQUIRED FOR COOKIES
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
 });
 
 /**

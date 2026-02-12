@@ -6,6 +6,7 @@ import {
 } from "@/services/discoverService";
 import SkillTreeBrowseCard from "./components/SkillTreeBrowseCard";
 import { Search, Filter, Loader2 } from "lucide-react";
+import { ScanLoader } from "@/components/Loader";
 
 export default function DiscoverPage() {
   const [trees, setTrees] = useState<SkillTreeSummary[]>([]);
@@ -80,13 +81,14 @@ export default function DiscoverPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50 to-neutral-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900 flex items-center justify-center">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 text-[#5B8DB0] dark:text-[#7DA8C3] animate-spin mx-auto mb-4" />
-          <p className="text-neutral-700 dark:text-neutral-300 text-lg">
-            Loading skill trees...
-          </p>
-        </div>
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-white via-neutral-50 to-blue-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800">
+        <ScanLoader
+          size="lg"
+          text="Loading Skill Trees..."
+          variant="radial"
+          color="#5B8DB0"
+          speed={2}
+        />
       </div>
     );
   }
