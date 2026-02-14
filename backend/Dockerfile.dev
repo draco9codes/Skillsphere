@@ -1,0 +1,14 @@
+FROM maven:3.9-eclipse-temurin-17
+WORKDIR /app
+
+# Copy pom and install dependencies
+COPY pom.xml .
+RUN mvn -q -B dependency:go-offline
+
+# Copy source (will be overridden by volume mount in compose)
+COPY src ./src
+
+EXPOSE 8083
+
+# Run with spring-boot-devtools for hot reload
+CMD ["mvn", "spring-boot:run", "-Dspring-boot.run.jvmArguments=-XX:MaxRAMPercentage=75.0"]

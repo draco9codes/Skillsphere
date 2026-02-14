@@ -1,0 +1,12 @@
+2026-02-14 14:21:45 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.18 with PID 98 (/app/target/classes started by root in /app)
+2026-02-14 14:21:45 INFO  BackendApplication:658 - The following 1 profile is active: "dev"
+2026-02-14 14:22:32 INFO  BackendApplication:59 - Started BackendApplication in 50.121 seconds (process running for 56.157)
+2026-02-14 14:22:32 INFO  BackendApplication:15 - ========================================
+2026-02-14 14:22:32 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-14 14:22:32 INFO  BackendApplication:17 - ========================================
+2026-02-14 14:55:28 INFO  BackendApplication:53 - Starting BackendApplication using Java 17.0.18 with PID 112 (/app/target/classes started by root in /app)
+2026-02-14 14:55:28 INFO  BackendApplication:658 - The following 1 profile is active: "dev"
+2026-02-14 14:56:01 INFO  BackendApplication:59 - Started BackendApplication in 34.68 seconds (process running for 37.169)
+2026-02-14 14:56:01 INFO  BackendApplication:15 - ========================================
+2026-02-14 14:56:01 INFO  BackendApplication:16 - Skillsphere Backend Application Started
+2026-02-14 14:56:01 INFO  BackendApplication:17 - ========================================

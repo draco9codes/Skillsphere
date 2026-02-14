@@ -1,0 +1,70 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: skillsphere-db-dev
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data_dev:/var/lib/postgresql/data
+    networks:
+      - app-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: skillsphere-backend-dev
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/${DB_NAME}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8083:8083"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - maven_cache:/root/.m2
+    networks:
+      - app-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: skillsphere-frontend-dev
+    environment:
+      VITE_BACKEND_URL: ${VITE_BACKEND_URL}
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - app-net
+    restart: unless-stopped
+
+networks:
+  app-net:
+    driver: bridge
+
+volumes:
+  db_data_dev:
+  maven_cache:

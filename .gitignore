@@ -1,1 +1,12 @@
 logs/app.log
+# Environment files (never commit real secrets)
+.env
+.env.local
+.env.production
+
+# Keep example file
+!.env.example
+!.env.dev
+
+# Docker
+docker-compose.override.yml
